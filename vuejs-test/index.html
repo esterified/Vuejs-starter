@@ -50,6 +50,7 @@
     <div id="components-demo">
         <button-counter></button-counter>
     </div>
+    <div id="mount-point"></div>
     <script>
         // Define a new components
         var componentA = {
@@ -135,6 +136,19 @@
                 message: 'Hello Vue!'
             }
         })
+        // create constructor
+        var Profile = Vue.extend({
+            template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
+            data: function () {
+                return {
+                    firstName: 'Walter',
+                    lastName: 'White',
+                    alias: 'Heisenberg'
+                }
+            }
+        })
+        // create an instance of Profile and mount it on an element
+        new Profile().$mount('#mount-point')
     </script>
 </body>
 
